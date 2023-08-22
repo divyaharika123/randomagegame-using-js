@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomage</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(246, 202, 145);
+    }
+
+    .imgg {
+        width: 10rem;
+        height: 10rem;
+        border: 2px solid;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    #btn,
+    #chance {
+        margin-top: 1rem;
+    }
+
+    input {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    #count {
+        width: 3.5rem;
+        height: 2rem;
+        /* background-color: aqua;
+        color: black; */
+
+
+    }
+</style>
+
+
+<body>
+    <form action="">
+        <h1>GUESS THE AGE</h1>
+        <h1 id="userinp"></h1>
+        <h1 id="userinp2"></h1>
+        <img class="imgg" id="imgg" src="https://pbs.twimg.com/profile_images/1447858867476516872/VRE2LTF__400x400.jpg"
+            alt="">
+        <input type="text" id="age" placeholder="ENTER AGE">
+        <button id="btn" type="button">SUBMIT</button>
+
+        <button id="chance"></button>
+        <!-- <span><h1 id="count">5</h1></span> -->
+
+    </form>
+</body>
+
+
+<script>
+    var userinp = document.getElementById("userinp");
+    var userinp2 = document.getElementById("userinp2");
+    var imgg = document.getElementById("imgg");
+    var age = document.getElementById("age");
+    var btn = document.getElementById("btn");
+    var chance = document.getElementById("chance");
+    var count = document.getElementById("count");
+
+    // var userinp = ["INFANT", "CHILD", "TEENAGE", "YOUNG", "ADULT", "SENIORCITIZEN", "RIP"];
+
+    var randomage = Math.floor(Math.random() * 100);
+    console.log(`${randomage}----> system generated age`);
+
+
+    btn.addEventListener("click", () => {
+        if (count>= 1) {
+
+            count -= 1;
+            chance.innerHTML = count
+        }
+        else if(count==0) {
+            console.log("GAMEOVER");
+            imgg.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnsl07pTteenkLa2UVHKVC-ZwPOufz8Qm8vw&usqp=CAU";
+        }
+
+
+
+        if (age.value == randomage) {
+            userinp.innerHTML = "RIGHT GUESS";
+            imgg.src = "https://play-lh.googleusercontent.com/rMzqCVxmYMfU2WBNFcjZJrCd2iVJseOPRhb8PtgSGZVaz0uduovpyk0XIXScZIdIZw";
+            console.log("rightguess");
+        }
+
+
+
+        else if ((age.value == 1) && (age.value <= 3)) {
+            userinp.innerHTML = "INFANT";
+            imgg.src = "https://www.childrenscolorado.org/globalassets/parenting-advice/articles/baby-laying-down.jpg";
+            console.log("infant");
+        }
+
+        else if ((age.value >= 4) && (age.value <= 12)) {
+            userinp.innerHTML = "CHILD";
+            imgg.src = "https://image.cnbcfm.com/api/v1/image/107203114-1677872178166-GettyImages-1382525205.jpg?v=1677940236";
+            console.log("child");
+        }
+
+        else if ((age.value >= 13) && (age.value <= 19)) {
+            userinp.innerHTML = "TEENAAGE";
+            imgg.src = "https://www.youthdynamics.org/wp-content/uploads/2017/11/teen-engage.png";
+            console.log("teenage");
+        }
+
+        else if ((age.value >= 20) && (age.value <= 30)) {
+            userinp.innerHTML = "YOUNG";
+            imgg.src = "https://i.ytimg.com/vi/5Sf-dy2wKQs/maxresdefault.jpg";
+            console.log("young");
+        }
+
+        else if ((age.value >= 31) && (age.value <= 60)) {
+            userinp.innerHTML = "ADULT";
+            imgg.src = "https://generationrx.org/wp-content/uploads/2018/06/adult-toolkit-header.jpg";
+            console.log("adult");
+        }
+
+        else if ((age.value >= 61) && (age.value <= 100)) {
+            userinp.innerHTML = "SENIORCITIZEN";
+            imgg.src = "https://assets.thehansindia.com/h-upload/2021/08/20/1103263-senior-citizens.jpg";
+            console.log("seniorcitizen");
+        }
+
+        else if (age.value >= 101) {
+            userinp.innerHTML = "RIP";
+            imgg.src = "https://www.wishesmsg.com/wp-content/uploads/rest-in-peace.jpg";
+            console.log("rip");
+        }
+        else {
+            userinp.innerHTML = "wrong answer";
+
+        }
+
+    })
+    // btn.addEventListener("click", () => {
+    //     if (randomage == age.value) {
+    //         console.log("you win");
+    //         userinp2.innerHTML = "YOU WIN";
+    //     }
+
+    //     else {
+            
+    //         score--;
+    //         if()
+    //         console.log("you loss");
+    //         userinp2.innerHTML = "YOU LOSS";
+    //     }
+    // });
+
+
+
+
+
+
+    // count---------------------
+    var count = 5;
+
+
+</script>
+
+</html>
